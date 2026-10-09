@@ -46,8 +46,8 @@
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>C:\Users\Parrot\Desktop\Elecrow\run_checkin.bat</Command>
-      <WorkingDirectory>C:\Users\Parrot\Desktop\Elecrow</WorkingDirectory>
+      <Command>D:\Users\Parrot\Documents\GitHub\elecrow-coin-collector\run_checkin.bat</Command>
+      <WorkingDirectory>D:\Users\Parrot\Documents\GitHub\elecrow-coin-collector</WorkingDirectory>
     </Exec>
   </Actions>
 </Task>
