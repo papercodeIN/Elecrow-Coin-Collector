@@ -92,3 +92,14 @@ type checkin_log.txt
 - Daily check-in: **10 coins**
 - Bonus for 7 consecutive days in a month: **50 coins**
 - Coins can be redeemed at [Elecrow Redemption Center](https://www.elecrow.com/redemption.html)
+
+## GitHub Actions (no laptop needed)
+
+Runs daily on GitHub at 9:00 UTC. Workflow file: `.github/workflows/Elecrow Daily Check-in.yml`.
+
+1. Repo **Settings** → **Secrets and actions** → **New repository secret**
+2. Add `ELECROW_EMAIL` and `ELECROW_PASSWORD`
+3. **Actions** → **Elecrow Daily Check-in** → **Run workflow** to test
+4. Logs and screenshot: open the run → **Artifacts** → `checkin-logs`
+
+It keeps running every day after that. Public repo is fine.
