@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-16"?>
 <Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <RegistrationInfo>
-    <Description>Elecrow daily check-in automation - logs in, navigates to projects page, and collects coins. If missed, runs ASAP when system is available.</Description>
+    <Description>Elecrow daily check-in automation - logs in, collects coins. Runs daily at 09:00, and whenever the system starts or a user logs on after a missed run.</Description>
     <URI>\ElecrowDailyCheckIn</URI>
   </RegistrationInfo>
   <Triggers>
@@ -12,9 +12,15 @@
         <DaysInterval>1</DaysInterval>
       </ScheduleByDay>
     </CalendarTrigger>
+    <BootTrigger>
+      <Enabled>true</Enabled>
+    </BootTrigger>
+    <LogonTrigger>
+      <Enabled>true</Enabled>
+    </LogonTrigger>
   </Triggers>
   <Principals>
-    <Principal id="Author">
+    <Principal id="Parrot">
       <LogonType>InteractiveToken</LogonType>
       <RunLevel>LeastPrivilege</RunLevel>
     </Principal>
@@ -44,7 +50,7 @@
       <Count>3</Count>
     </RestartOnFailure>
   </Settings>
-  <Actions Context="Author">
+  <Actions>
     <Exec>
       <Command>D:\Users\Parrot\Documents\GitHub\elecrow-coin-collector\run_checkin.bat</Command>
       <WorkingDirectory>D:\Users\Parrot\Documents\GitHub\elecrow-coin-collector</WorkingDirectory>
