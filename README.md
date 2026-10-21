@@ -8,7 +8,8 @@ Automated daily check-in for [Elecrow Project Community](https://www.elecrow.com
 2. Navigates to the Projects page
 3. Performs the daily check-in (POST to `/rewardpoints/redemption/ajaxCheckIn`)
 4. Collects coins and logs the result
-5. Saves a screenshot of the result
+5. Likes up to 5 projects (1 coin per like, max 5 coins/day)
+6. Saves a screenshot of the result
 
 ## Files
 
@@ -79,6 +80,12 @@ Run headless (no window):
 python elecrow_checkin.py --headless
 ```
 
+Skip the project likes and only check in:
+
+```
+python elecrow_checkin.py --skip-likes
+```
+
 ## Logs
 
 Scheduled runs append output to `checkin_log.txt`. Check this file to verify daily runs:
@@ -87,11 +94,39 @@ Scheduled runs append output to `checkin_log.txt`. Check this file to verify dai
 type checkin_log.txt
 ```
 
+Each multi-account run writes `multi_account/logs/<account>_<date>.log`. Every run ends with a `[COIN BALANCE] <n> coins` line so you can see the balance for each account.
+
+## Multi-Account Safety
+
+Run all accounts with randomized delays:
+
+```
+python multi_account/run_all.py --headless
+```
+
+Safety defaults:
+
+- Likes are spaced **8-20 seconds** apart.
+- Accounts are spaced **60-180 seconds** apart.
+- Projects are shuffled for each account, so accounts do not all like the same projects.
+- If all projects on the first page are already liked, it automatically scans further pages.
+
+Options:
+
+- `--account-delay-min 90 --account-delay-max 240` to slow down further
+- `--shuffle` to randomize account order
+- `--no-delay` to disable the wait (not recommended)
+
+A full 11-account run now takes roughly 30-60 minutes.
+
 ## Coins System
 
 - Daily check-in: **10 coins**
 - Bonus for 7 consecutive days in a month: **50 coins**
+- Like Project: **1 coin per like, max 5 coins/day** (5 different projects)
 - Coins can be redeemed at [Elecrow Redemption Center](https://www.elecrow.com/redemption.html)
+
+> Likes are state-based: if you unlike a project, the coin from that like is removed. The automation therefore likes 5 different projects and keeps them liked.
 
 ## GitHub Actions (no laptop needed)
 

@@ -22,5 +22,12 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 
+# Multi-account (local only)
+multi_account/
+
+# Generated output
+checkin_log.txt
+checkin_result.png
+
 # Personal commands
 git-push-commands.txt
