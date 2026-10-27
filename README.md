@@ -130,7 +130,7 @@ A full 11-account run now takes roughly 30-60 minutes.
 
 ## GitHub Actions (no laptop needed)
 
-Runs daily on GitHub at 9:00 UTC. Workflow file: `.github/workflows/Elecrow Daily Check-in.yml`.
+Runs daily on GitHub at 9:00 UTC. Workflow file: `.github/workflows/elecrow-checkin.yml`.
 
 1. Repo **Settings** → **Secrets and actions** → **New repository secret**
 2. Add `ELECROW_EMAIL` and `ELECROW_PASSWORD`

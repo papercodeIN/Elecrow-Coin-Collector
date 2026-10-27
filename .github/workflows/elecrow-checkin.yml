@@ -2,7 +2,7 @@ name: Elecrow Daily Check-in
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # runs daily at 9:00 UTC
+    - cron: '0 9 * * *'  # daily at 9:00 UTC
   workflow_dispatch:
 
 permissions:
